@@ -2,7 +2,6 @@
 
 namespace DataMat\CheshireCat\Builders;
 
-use DataMat\CheshireCat\DTO\Memory;
 use DataMat\CheshireCat\DTO\Why;
 
 class WhyBuilder implements BaseBuilder
@@ -12,7 +11,8 @@ class WhyBuilder implements BaseBuilder
     /** @var null|array<string, mixed> */
     private ?array $intermediateSteps = [];
 
-    private Memory $memory;
+    /** @var array<array<string, mixed>>|null */
+    private ?array $memory = [];
 
     public static function create() : WhyBuilder
     {
@@ -36,7 +36,7 @@ class WhyBuilder implements BaseBuilder
         return $this;
     }
 
-    public function setMemory(Memory $memory): WhyBuilder
+    public function setMemory(array $memory): WhyBuilder
     {
         $this->memory = $memory;
 

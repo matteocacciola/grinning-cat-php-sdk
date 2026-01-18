@@ -12,7 +12,8 @@ class Why
     #[SerializedName('intermediate_steps')]
     public ?array $intermediateSteps = [];
 
-    public Memory $memory;
+    /** @var array<array<string, mixed>>|null */
+    public ?array $memory = [];
 
     /**
      * @return array<string, mixed>
@@ -22,7 +23,7 @@ class Why
         return [
             'input' => $this->input,
             'intermediate_steps' => $this->intermediateSteps,
-            'memory' => $this->memory->toArray(),
+            'memory' => $this->memory,
         ];
     }
 }

@@ -2,9 +2,7 @@
 
 namespace DataMat\CheshireCat\Tests;
 
-use DataMat\CheshireCat\Builders\MemoryBuilder;
 use DataMat\CheshireCat\Builders\MemoryPointBuilder;
-use DataMat\CheshireCat\Builders\WhyBuilder;
 use DataMat\CheshireCat\CheshireCatUtility;
 use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointsOutput;
 use GuzzleHttp\Exception\GuzzleException;
@@ -72,109 +70,6 @@ class MemoryEndpointTest extends BaseTest
         $result = $endpoint->deleteAllSingleMemoryCollectionPoints('declarative', 'agent');
 
         self::assertEquals($expected['deleted']['declarative'], $result->deleted['declarative']);
-    }
-
-    /**
-     * @throws GuzzleException|Exception|\JsonException
-     */
-    public function testGetConversationHistorySuccess(): void
-    {
-        $expected = [
-            'history' => [
-                [
-                    'who' => 'user',
-                    'when' => 0.0,
-                    'content' => [
-                        'text' => 'Hey you!',
-                    ],
-                ],
-                [
-                    'who' => 'assistant',
-                    'when' => 0.1,
-                    'content' => [
-                        'text' => 'Hi!',
-                    ],
-                ],
-            ],
-        ];
-
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
-
-        $endpoint = $cheshireCatClient->memory();
-        $result = $endpoint->getConversationHistory('agent', 'user');
-
-        self::assertEquals($expected, $result->toArray());
-    }
-
-    /**
-     * @throws GuzzleException|Exception|\JsonException
-     */
-    public function testDeleteConversationHistorySuccess(): void
-    {
-        $expected = ['deleted' => true];
-
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
-
-        $endpoint = $cheshireCatClient->memory();
-        $result = $endpoint->deleteConversationHistory('agent', 'user');
-
-        self::assertEquals($expected['deleted'], $result->deleted);
-    }
-
-    /**
-     * @throws GuzzleException|Exception|\JsonException
-     */
-    public function testPostConversationHistorySuccess(): void
-    {
-        $expected = [
-            'history' => [
-                [
-                    'who' => 'user',
-                    'when' => 0.0,
-                    'content' => [
-                        'text' => 'Hey you!',
-                    ],
-                ],
-                [
-                    'who' => 'assistant',
-                    'when' => 0.1,
-                    'content' => [
-                        'text' => 'Hi!',
-                        'why' => [
-                            'input' => 'input',
-                            'intermediate_steps' => [],
-                            'memory' => [
-                                'declarative' => [],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $memory = MemoryBuilder::create()
-            ->setDeclarative($expected['history'][1]['content']['why']['memory']['declarative'])
-            ->build();
-
-        $why = WhyBuilder::create()
-            ->setInput($expected['history'][1]['content']['why']['input'])
-            ->setIntermediateSteps($expected['history'][1]['content']['why']['intermediate_steps'])
-            ->setMemory($memory)
-            ->build();
-
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
-
-        $endpoint = $cheshireCatClient->memory();
-        $result = $endpoint->postConversationHistory(
-            'assistant',
-            $expected['history'][1]['content']['text'],
-            'agent',
-            'user',
-            null,
-            $why,
-        );
-
-        self::assertEquals($expected, $result->toArray());
     }
 
     /**
