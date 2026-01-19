@@ -56,13 +56,14 @@ abstract class AbstractEndpoint
         ?string $outputClass = null,
         ?string $userId = null,
         ?array $query = null,
+        ?string $chatId = null,
     ): mixed {
         $options = [];
         if ($query) {
             $options['query'] = $query;
         }
 
-        $response = $this->getHttpClient($agentId, $userId)->get($endpoint, $options);
+        $response = $this->getHttpClient($agentId, $userId, $chatId)->get($endpoint, $options);
         if ($response->getStatusCode() !== 200) {
             throw new \RuntimeException(
                 sprintf('Failed to fetch data from endpoint %s: %s', $endpoint, $response->getReasonPhrase())
@@ -142,13 +143,14 @@ abstract class AbstractEndpoint
         string $outputClass,
         ?array $payload = null,
         ?string $userId = null,
+        ?string $chatId = null,
     ): mixed {
         $options = [];
         if ($payload) {
             $options['json'] = $payload;
         }
 
-        $response = $this->getHttpClient($agentId, $userId)->put($endpoint, $options);
+        $response = $this->getHttpClient($agentId, $userId, $chatId)->put($endpoint, $options);
         if ($response->getStatusCode() !== 200) {
             throw new \RuntimeException(
                 sprintf('Failed to put data to endpoint %s: %s', $endpoint, $response->getReasonPhrase())
@@ -169,13 +171,14 @@ abstract class AbstractEndpoint
         string $outputClass,
         ?string $userId = null,
         ?array $payload = null,
+        ?string $chatId = null,
     ): mixed {
         $options = [];
         if ($payload) {
             $options['json'] = $payload;
         }
 
-        $response = $this->getHttpClient($agentId, $userId)->delete($endpoint, $options);
+        $response = $this->getHttpClient($agentId, $userId, $chatId)->delete($endpoint, $options);
         if ($response->getStatusCode() !== 200) {
             throw new \RuntimeException(
                 sprintf('Failed to delete data from endpoint %s: %s', $endpoint, $response->getReasonPhrase())

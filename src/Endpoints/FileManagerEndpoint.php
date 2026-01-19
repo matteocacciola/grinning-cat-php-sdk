@@ -65,29 +65,39 @@ class FileManagerEndpoint extends AbstractEndpoint
     /**
      * @throws GuzzleException
      */
-    public function getFileManagerAttributes(string $agentId): FileManagerAttributes
+    public function getFileManagerAttributes(string $agentId, ?string $chatId = null,): FileManagerAttributes
     {
-        return $this->get($this->prefix, $agentId, FileManagerAttributes::class);
+        return $this->get($this->prefix, $agentId, FileManagerAttributes::class, null, null, $chatId);
     }
 
-    public function getFile(string $agentId, string $fileName): StreamInterface
+    public function getFile(string $agentId, string $fileName, ?string $chatId = null,): StreamInterface
     {
-        return $this->getHttpClient($agentId)->get($this->formatUrl('/files/' . $fileName), [
+        return $this->getHttpClient($agentId, null, $chatId)->get($this->formatUrl('/files/' . $fileName), [
             'stream' => true
         ])->getBody();
     }
 
-    public function deleteFile(string $agentId, string $fileName): FileManagerDeletedFiles
+    public function deleteFile(string $agentId, string $fileName, ?string $chatId = null,): FileManagerDeletedFiles
     {
         return $this->delete(
-            $this->formatUrl('/files/' . $fileName), $agentId, FileManagerDeletedFiles::class
+            $this->formatUrl('/files/' . $fileName),
+            $agentId,
+            FileManagerDeletedFiles::class,
+            null,
+            null,
+            $chatId,
         );
     }
 
-    public function deleteFiles(string $agentId): FileManagerDeletedFiles
+    public function deleteFiles(string $agentId, ?string $chatId = null,): FileManagerDeletedFiles
     {
         return $this->delete(
-            $this->formatUrl('/files'), $agentId, FileManagerDeletedFiles::class
+            $this->formatUrl('/files'),
+            $agentId,
+            FileManagerDeletedFiles::class,
+            null,
+            null,
+            $chatId,
         );
     }
 }

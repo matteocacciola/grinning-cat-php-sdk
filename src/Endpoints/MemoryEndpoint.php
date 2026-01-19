@@ -94,6 +94,7 @@ class MemoryEndpoint extends AbstractEndpoint
         string $userId,
         ?int $k = null,
         ?array $metadata = null,
+        ?string $chatId = null,
     ): MemoryRecallOutput {
         $query = ['text' => $text];
         if ($k) {
@@ -109,6 +110,7 @@ class MemoryEndpoint extends AbstractEndpoint
             MemoryRecallOutput::class,
             $userId,
             $query,
+            $chatId,
         );
     }
 

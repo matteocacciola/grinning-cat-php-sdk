@@ -164,11 +164,15 @@ class RabbitHoleEndpoint extends AbstractEndpoint
      *
      * @throws GuzzleException
      */
-    public function getWebSources(string $agentId): array
+    public function getWebSources(string $agentId, ?string $chatId = null): array
     {
         return $this->get(
             $this->formatUrl('/web'),
             $agentId,
+            null,
+            null,
+            null,
+            $chatId
         );
     }
 }
