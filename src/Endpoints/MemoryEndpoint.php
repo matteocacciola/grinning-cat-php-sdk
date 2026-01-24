@@ -10,6 +10,7 @@ use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointsDeleteByMetadataOutput;
 use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointsOutput;
 use DataMat\CheshireCat\DTO\Api\Memory\MemoryRecallOutput;
 use DataMat\CheshireCat\DTO\Api\Memory\Nested\CollectionsItem;
+use DataMat\CheshireCat\DTO\FilterSource;
 use DataMat\CheshireCat\DTO\MemoryPoint;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -237,6 +238,19 @@ class MemoryEndpoint extends AbstractEndpoint
             null,
             $query ?: null,
         );
+    }
+
+    public function hasSource(string $agentId, FilterSource $filterSource, ?string $chatId = null): bool
+    {
+        $metadata = $filterSource->source ? ['source' => $filterSource->source] : ['hash' => $filterSource->hash];
+        if ($chatId !== null) {
+            $metadata['chat_id'] = $chatId;
+        }
+
+        $collectionName = $chatId ? "episodic" : "declarative";
+        $points = $this->getMemoryPoints($collectionName, $agentId, null, null, $metadata);
+
+        return count($points->points) > 0;
     }
 
     // END Memory Points API --
