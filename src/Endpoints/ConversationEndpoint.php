@@ -4,14 +4,14 @@ namespace DataMat\CheshireCat\Endpoints;
 
 use DataMat\CheshireCat\DTO\Api\Conversation\ConversationDeleteOutput;
 use DataMat\CheshireCat\DTO\Api\Conversation\ConversationHistoryOutput;
-use DataMat\CheshireCat\DTO\Api\Conversation\ConversationNameChangeOutput;
+use DataMat\CheshireCat\DTO\Api\Conversation\ConversationAttributesChangeOutput;
 use DataMat\CheshireCat\DTO\Api\Conversation\ConversationsResponse;
 use GuzzleHttp\Exception\GuzzleException;
 use RuntimeException;
 
 class ConversationEndpoint extends AbstractEndpoint
 {
-    protected string $prefix = '/conversation';
+    protected string $prefix = '/conversations';
 
     /**
      * This endpoint returns the conversation history.
@@ -21,7 +21,7 @@ class ConversationEndpoint extends AbstractEndpoint
     public function getConversationHistory(string $agentId, string $userId, string $chatId): ConversationHistoryOutput
     {
         return $this->get(
-            $this->formatUrl($chatId),
+            $this->formatUrl($chatId . '/history'),
             $agentId,
             ConversationHistoryOutput::class,
             $userId,
@@ -54,6 +54,21 @@ class ConversationEndpoint extends AbstractEndpoint
     }
 
     /**
+     * This endpoint returns the attributes of a given conversation, for a given agent and user.
+     *
+     * @throws GuzzleException|\JsonException|RuntimeException
+     */
+    public function getConversation(string $agentId, string $userId, string $chatId): ConversationsResponse
+    {
+        return $this->get(
+            $this->formatUrl($chatId),
+            $agentId,
+            ConversationsResponse::class,
+            $userId,
+        );
+    }
+
+    /**
      * This endpoint deletes the conversation.
      *
      * @throws GuzzleException
@@ -72,22 +87,35 @@ class ConversationEndpoint extends AbstractEndpoint
     }
 
     /**
-     * This endpoint changes the name of the conversation.
+     * This endpoint changes the attributes of the conversation.
+     *
+     * @param array<string, mixed>|null $metadata
      *
      * @throws GuzzleException
      */
-    public function postConversationName(
-        string $name,
+    public function putConversationAttributes(
         string $agentId,
         string $userId,
         string $chatId,
+        ?string $name = null,
+        ?array $metadata = null,
     ): ConversationHistoryOutput {
-        $payload = ['name' => $name];
+        if (!$name && !$metadata) {
+            throw new RuntimeException('Either name or metadata must be provided');
+        }
 
-        return $this->postJson(
+        $payload = [];
+        if ($name) {
+            $payload['name'] = $name;
+        }
+        if ($metadata) {
+            $payload['metadata'] = $metadata;
+        }
+
+        return $this->put(
             $this->formatUrl($chatId),
             $agentId,
-            ConversationNameChangeOutput::class,
+            ConversationAttributesChangeOutput::class,
             $payload,
             $userId,
         );

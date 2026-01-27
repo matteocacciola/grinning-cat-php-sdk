@@ -2,7 +2,7 @@
 
 namespace DataMat\CheshireCat\DTO\Api\Conversation;
 
-class ConversationNameChangeOutput
+class ConversationAttributesChangeOutput
 {
     public bool $changed;
 }
