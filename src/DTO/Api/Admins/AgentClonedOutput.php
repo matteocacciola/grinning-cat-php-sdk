@@ -2,7 +2,7 @@
 
 namespace DataMat\CheshireCat\DTO\Api\Admins;
 
-class CreatedOutput
+class AgentClonedOutput
 {
-    public bool $created;
+    public bool $cloned;
 }

@@ -2,8 +2,10 @@
 
 namespace DataMat\CheshireCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Admins\ClonedOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\CreatedOutput;
+use DataMat\CheshireCat\DTO\Api\Admins\AgentClonedOutput;
+use DataMat\CheshireCat\DTO\Api\Admins\AgentCreatedOutput;
+use DataMat\CheshireCat\DTO\Api\Admins\AgentOutput;
+use DataMat\CheshireCat\DTO\Api\Admins\AgentUpdatedOutput;
 use DataMat\CheshireCat\DTO\Api\Admins\ResetOutput;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Utils;
@@ -29,16 +31,28 @@ class UtilsEndpoint extends AbstractEndpoint
     /**
      * This endpoint is used to retrieve all the agents in the system.
      *
-     * @return string[]
+     * @return AgentOutput[]
      *
      * @throws GuzzleException
+     * @throws \JsonException
      */
     public function getAgents(): array
     {
-        return $this->get(
-            $this->formatUrl('/agents/'),
-            $this->systemId,
-        );
+        $response = $this->getHttpClient($this->systemId)->get($this->formatUrl('/agents/'));
+        if ($response->getStatusCode() !== 200) {
+            throw new \RuntimeException(
+                sprintf('Failed to fetch data from endpoint %s: %s', $this->prefix, $response->getReasonPhrase())
+            );
+        }
+
+        $response = $this->client->getSerializer()->decode($response->getBody()->getContents(), 'json');
+        $result = [];
+        foreach ($response as $item) {
+            $result[] = $this->deserialize(
+                json_encode($item, JSON_THROW_ON_ERROR), AgentOutput::class, 'json'
+            );
+        }
+        return $result;
     }
 
     /**
@@ -46,17 +60,15 @@ class UtilsEndpoint extends AbstractEndpoint
      *
      * @throws GuzzleException
      */
-    public function postAgentCreate(string $agentId): CreatedOutput
+    public function postAgentCreate(string $agentId, ?array $metadata = null): AgentCreatedOutput
     {
         $endpoint = $this->formatUrl('/agents/create/');
         $payload = ['agent_id' => $agentId];
-
-        $response = $this->getHttpClient()->post($endpoint, $payload);
-        if ($response->getStatusCode() !== 200) {
-            throw new \RuntimeException('Failed to create agent');
+        if ($metadata) {
+            $payload['metadata'] = $metadata;
         }
 
-        return $this->deserialize($response, CreatedOutput::class);
+        return $this->postJson($endpoint, $this->systemId, AgentCreatedOutput::class, $payload);
     }
 
     /**
@@ -92,13 +104,28 @@ class UtilsEndpoint extends AbstractEndpoint
      *
      * @throws GuzzleException
      */
-    public function postAgentClone(string $agentId, string $newAgentId): ClonedOutput
+    public function postAgentClone(string $agentId, string $newAgentId): AgentClonedOutput
     {
         return $this->postJson(
             $this->formatUrl('/agents/clone/'),
             $agentId,
-            ClonedOutput::class,
+            AgentClonedOutput::class,
             ['agent_id' => $newAgentId],
+        );
+    }
+
+    /**
+     * Updates information for an existing agent with the given metadata.
+     *
+     * @param array<string, mixed> $metadata
+     */
+    public function putAgent(string $agentId, array $metadata): AgentUpdatedOutput
+    {
+        return $this->put(
+            $this->formatUrl('/agents/'),
+            $agentId,
+            AgentUpdatedOutput::class,
+            ["metadata" => $metadata],
         );
     }
 }
