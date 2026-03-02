@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Factory;
+namespace DataMat\GrinningCat\DTO\Api\Factory;
 
 class FactoryObjectSettingOutput
 {

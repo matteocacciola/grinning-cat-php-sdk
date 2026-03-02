@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
@@ -26,9 +26,9 @@ class UsersEndpointTest extends TestCase
             'id' => 'id',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->users();
+        $endpoint = $grinningCatClient->users();
         $result = $endpoint->postUser('agent', $expected['username'], $expected['password'], $expected['permissions']);
 
         self::assertEquals($expected['username'], $result->username);
@@ -52,9 +52,9 @@ class UsersEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->users();
+        $endpoint = $grinningCatClient->users();
         $result = $endpoint->getUsers();
 
         self::assertCount(1, $result);
@@ -77,9 +77,9 @@ class UsersEndpointTest extends TestCase
             'id' => 'id',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->users();
+        $endpoint = $grinningCatClient->users();
         $result = $endpoint->getUser($expected['id'], 'agent');
 
         self::assertEquals($expected['username'], $result->username);
@@ -102,9 +102,9 @@ class UsersEndpointTest extends TestCase
             'id' => 'id',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->users();
+        $endpoint = $grinningCatClient->users();
         $result = $endpoint->putUser(
             $expected['id'], 'agent', $expected['username'], $expected['password'], $expected['permissions']
         );
@@ -128,9 +128,9 @@ class UsersEndpointTest extends TestCase
             'id' => 'id',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->users();
+        $endpoint = $grinningCatClient->users();
         $result = $endpoint->deleteUser($expected['id'], 'agent');
 
         self::assertEquals($expected['username'], $result->username);

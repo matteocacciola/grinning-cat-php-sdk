@@ -1,11 +1,11 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests\Traits;
+namespace DataMat\GrinningCat\Tests\Traits;
 
-use DataMat\CheshireCat\CheshireCatClient;
-use DataMat\CheshireCat\Clients\HttpClient as BaseHttpClient;
-use DataMat\CheshireCat\Tests\Mocks\TestHttpClient;
-use DataMat\CheshireCat\Tests\Mocks\TestWsClient;
+use DataMat\GrinningCat\GrinningCatClient;
+use DataMat\GrinningCat\Clients\HttpClient as BaseHttpClient;
+use DataMat\GrinningCat\Tests\Mocks\TestHttpClient;
+use DataMat\GrinningCat\Tests\Mocks\TestWsClient;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -24,15 +24,15 @@ trait TestTrait
     /**
      * @throws \JsonException|Exception
      */
-    protected function getCheshireCatClient(
+    protected function getGrinningCatClient(
         ?string $apikey = null,
         ?array $content = null,
         ?int $code = null
-    ): CheshireCatClient {
+    ): GrinningCatClient {
         $httpClient = $this->getHttpClient($apikey, $content, $code);
         $wsClient = $this->getWsClient($apikey, $content);
 
-        return new CheshireCatClient($wsClient, $httpClient);
+        return new GrinningCatClient($wsClient, $httpClient);
     }
 
     /**

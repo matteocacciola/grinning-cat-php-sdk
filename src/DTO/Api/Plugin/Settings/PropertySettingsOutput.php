@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Plugin\Settings;
+namespace DataMat\GrinningCat\DTO\Api\Plugin\Settings;
 
 class PropertySettingsOutput
 {

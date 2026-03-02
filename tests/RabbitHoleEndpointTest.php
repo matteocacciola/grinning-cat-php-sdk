@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
@@ -14,9 +14,9 @@ class RabbitHoleEndpointTest extends BaseTest
     {
         $expected = ['allowed' => ['application/pdf', 'text/plain', 'text/markdown', 'text/html']];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->rabbitHole();
+        $endpoint = $grinningCatClient->rabbitHole();
         $result = $endpoint->getAllowedMimeTypes('agent');
 
         self::assertEquals($expected['allowed'], $result->allowed);

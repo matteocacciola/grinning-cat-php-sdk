@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\FileManager;
+namespace DataMat\GrinningCat\DTO\Api\FileManager;
 
 class FileManagerDeletedFiles
 {

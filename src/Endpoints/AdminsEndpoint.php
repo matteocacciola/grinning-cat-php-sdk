@@ -1,15 +1,15 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Admins\PluginDeleteOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\PluginDetailsOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\PluginInstallFromRegistryOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\PluginInstallOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginCollectionOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginsSettingsOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginToggleOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\PluginDeleteOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\PluginDetailsOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\PluginInstallFromRegistryOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\PluginInstallOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginCollectionOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginsSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginToggleOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Utils;
 

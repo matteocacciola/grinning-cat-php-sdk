@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\FileManager;
+namespace DataMat\GrinningCat\DTO\Api\FileManager;
 
-use DataMat\CheshireCat\DTO\Api\FileManager\Nested\FileResponse;
+use DataMat\GrinningCat\DTO\Api\FileManager\Nested\FileResponse;
 
 class FileManagerAttributes
 {

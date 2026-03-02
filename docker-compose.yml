@@ -1,6 +1,6 @@
 services:
   php:
-    container_name: cheshirecat-php-sdk
+    container_name: grinning-cat-php-sdk
     build:
       context: ./docker/php
       args:
@@ -9,4 +9,4 @@ services:
     ports:
       - "8082:8081"
     volumes:
-      - ./:/var/www/cheshirecat-php-sdk
+      - ./:/var/www/grinning-cat-php-sdk

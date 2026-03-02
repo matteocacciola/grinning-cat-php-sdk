@@ -1,10 +1,10 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\DTO\Api\Message\ChatOutput;
-use DataMat\CheshireCat\DTO\Message;
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\DTO\Api\Message\ChatOutput;
+use DataMat\GrinningCat\DTO\Message;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -29,9 +29,9 @@ class MessageEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->message();
+        $endpoint = $grinningCatClient->message();
         $response = $endpoint->sendHttpMessage(
             new Message($expected['text']), 'agent_id', 'user_id'
         );
@@ -60,9 +60,9 @@ class MessageEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->message();
+        $endpoint = $grinningCatClient->message();
         $response = $endpoint->sendWebsocketMessage(
             new Message($expected['text']), 'agent_id', 'user_id'
         );

@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\Builders;
+namespace DataMat\GrinningCat\Builders;
 
 interface BaseBuilder
 {

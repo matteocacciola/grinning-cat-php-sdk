@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -33,9 +33,9 @@ class LargeLanguageModelEndpointTest extends TestCase
             'selected_configuration' => 'testLargeLanguageModel',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->largeLanguageModel();
+        $endpoint = $grinningCatClient->largeLanguageModel();
         $result = $endpoint->getLargeLanguageModelsSettings('agent');
 
         foreach ($expected['settings'] as $key => $setting) {
@@ -67,9 +67,9 @@ class LargeLanguageModelEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->largeLanguageModel();
+        $endpoint = $grinningCatClient->largeLanguageModel();
         $result = $endpoint->getLargeLanguageModelSettings('testLargeLanguageModel', 'agent');
 
         self::assertEquals($expected['name'], $result->name);
@@ -94,9 +94,9 @@ class LargeLanguageModelEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->largeLanguageModel();
+        $endpoint = $grinningCatClient->largeLanguageModel();
         $result = $endpoint->putLargeLanguageModelSettings('testLargeLanguageModel', 'agent', $expected['value']);
 
         self::assertEquals($expected['name'], $result->name);

@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Admins;
+namespace DataMat\GrinningCat\DTO\Api\Admins;
 
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginToggleOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginToggleOutput;
 
 class PluginInstallFromRegistryOutput extends PluginToggleOutput
 {

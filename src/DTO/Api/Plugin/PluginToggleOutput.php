@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Plugin;
+namespace DataMat\GrinningCat\DTO\Api\Plugin;
 
 class PluginToggleOutput
 {

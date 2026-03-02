@@ -1,10 +1,10 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginsSettingsOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginsSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -90,9 +90,9 @@ class PluginsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->getAvailablePlugins('agent');
 
         self::assertEquals($expected, $result->toArray());
@@ -144,9 +144,9 @@ class PluginsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->getAvailablePlugins('agent', 'Plugin 1');
 
         self::assertEquals($expected, $result->toArray());
@@ -162,9 +162,9 @@ class PluginsEndpointTest extends TestCase
             'info' => 'Plugin plugin_1 toggled',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->putTogglePlugin($pluginId, 'agent');
 
         self::assertEquals($expected['info'], $result->info);
@@ -216,9 +216,9 @@ class PluginsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->getPluginsSettings('agent');
 
         self::assertInstanceOf(PluginsSettingsOutput::class, $result);
@@ -248,9 +248,9 @@ class PluginsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->getPluginSettings($expected['name'], 'agent');
 
         self::assertInstanceOf(PluginSettingsOutput::class, $result);
@@ -269,9 +269,9 @@ class PluginsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->plugins();
+        $endpoint = $grinningCatClient->plugins();
         $result = $endpoint->putPluginSettings(
             $expected['name'],
             'agent',

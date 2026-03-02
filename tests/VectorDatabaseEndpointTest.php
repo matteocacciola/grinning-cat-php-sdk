@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -33,9 +33,9 @@ class VectorDatabaseEndpointTest extends TestCase
             'selected_configuration' => 'testVectorDatabase',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->vectorDatabase();
+        $endpoint = $grinningCatClient->vectorDatabase();
         $result = $endpoint->getVectorDatabasesSettings('agent');
 
         foreach ($expected['settings'] as $key => $setting) {
@@ -67,9 +67,9 @@ class VectorDatabaseEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->vectorDatabase();
+        $endpoint = $grinningCatClient->vectorDatabase();
         $result = $endpoint->getVectorDatabaseSettings('testVectorDatabase', 'agent');
 
         self::assertEquals($expected['name'], $result->name);
@@ -94,9 +94,9 @@ class VectorDatabaseEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->vectorDatabase();
+        $endpoint = $grinningCatClient->vectorDatabase();
         $result = $endpoint->putVectorDatabaseSettings('testVectorDatabase', 'agent', $expected['value']);
 
         self::assertEquals($expected['name'], $result->name);

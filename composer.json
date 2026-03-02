@@ -1,6 +1,6 @@
 {
-    "name": "matteocacciola/cheshirecat-php-sdk",
-    "description": "Cheshire Cat PHP Sdk",
+    "name": "matteocacciola/grinning-cat-php-sdk",
+    "description": "Grinning Cat PHP Sdk",
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "^7.0",
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DataMat\\CheshireCat\\": "src/"
+            "DataMat\\GrinningCat\\": "src/"
         },
         "classmap": [
             "src/"
@@ -19,7 +19,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DataMat\\CheshireCat\\Tests\\": "tests/"
+            "DataMat\\GrinningCat\\Tests\\": "tests/"
         },
         "classmap": [
             "tests/"

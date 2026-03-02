@@ -1,9 +1,9 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Memory\Nested;
+namespace DataMat\GrinningCat\DTO\Api\Memory\Nested;
 
-use DataMat\CheshireCat\DTO\MessageBase;
-use DataMat\CheshireCat\DTO\Why;
+use DataMat\GrinningCat\DTO\MessageBase;
+use DataMat\GrinningCat\DTO\Why;
 
 class ConversationHistoryItemContent extends MessageBase
 {

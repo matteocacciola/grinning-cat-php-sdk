@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Admins;
+namespace DataMat\GrinningCat\DTO\Api\Admins;
 
 class AgentUpdatedOutput
 {

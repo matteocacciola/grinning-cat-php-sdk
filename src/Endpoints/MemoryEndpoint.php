@@ -1,17 +1,17 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Memory\CollectionPointsDestroyOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\CollectionsOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointDeleteOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointsDeleteByMetadataOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\MemoryPointsOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\MemoryRecallOutput;
-use DataMat\CheshireCat\DTO\Api\Memory\Nested\CollectionsItem;
-use DataMat\CheshireCat\DTO\FilterSource;
-use DataMat\CheshireCat\DTO\MemoryPoint;
+use DataMat\GrinningCat\DTO\Api\Memory\CollectionPointsDestroyOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\CollectionsOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\MemoryPointDeleteOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\MemoryPointOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\MemoryPointsDeleteByMetadataOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\MemoryPointsOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\MemoryRecallOutput;
+use DataMat\GrinningCat\DTO\Api\Memory\Nested\CollectionsItem;
+use DataMat\GrinningCat\DTO\FilterSource;
+use DataMat\GrinningCat\DTO\MemoryPoint;
 use GuzzleHttp\Exception\GuzzleException;
 
 class MemoryEndpoint extends AbstractEndpoint

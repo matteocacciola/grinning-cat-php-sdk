@@ -1,9 +1,9 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Endpoints\AbstractEndpoint;
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Endpoints\AbstractEndpoint;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Client as HttpClient;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -40,24 +40,24 @@ class BaseTest extends TestCase
     /**
      * @throws \JsonException|Exception
      */
-    public function testGetGuzzleClientsFromCheshireCatClientWithApikeySuccess(): void
+    public function testGetGuzzleClientsFromGrinningCatClientWithApikeySuccess(): void
     {
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey);
 
-        self::assertInstanceOf(HttpClient::class, $cheshireCatClient->getHttpClient()->getClient());
-        self::assertInstanceOf(WsClient::class, $cheshireCatClient->getWsClient()->getClient('agent', 'user'));
+        self::assertInstanceOf(HttpClient::class, $grinningCatClient->getHttpClient()->getClient());
+        self::assertInstanceOf(WsClient::class, $grinningCatClient->getWsClient()->getClient('agent', 'user'));
     }
 
     /**
      * @throws \JsonException|Exception
      */
-    public function testGetGuzzleClientsFromCheshireCatClientWithTokenSuccess(): void
+    public function testGetGuzzleClientsFromGrinningCatClientWithTokenSuccess(): void
     {
-        $cheshireCatClient = $this->getCheshireCatClient();
-        $cheshireCatClient->addToken($this->token);
+        $grinningCatClient = $this->getGrinningCatClient();
+        $grinningCatClient->addToken($this->token);
 
-        self::assertInstanceOf(HttpClient::class, $cheshireCatClient->getHttpClient()->getClient());
-        self::assertInstanceOf(WsClient::class, $cheshireCatClient->getWsClient()->getClient('agent', 'user'));
+        self::assertInstanceOf(HttpClient::class, $grinningCatClient->getHttpClient()->getClient());
+        self::assertInstanceOf(WsClient::class, $grinningCatClient->getWsClient()->getClient('agent', 'user'));
     }
 
     /**
@@ -65,8 +65,8 @@ class BaseTest extends TestCase
      */
     public function testFactorySuccess(): void
     {
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey);
-        $endpoint = $cheshireCatClient->admins();
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey);
+        $endpoint = $grinningCatClient->admins();
 
         self::assertInstanceOf(AbstractEndpoint::class, $endpoint);
     }

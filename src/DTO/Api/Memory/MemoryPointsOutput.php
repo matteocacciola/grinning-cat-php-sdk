@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Memory;
+namespace DataMat\GrinningCat\DTO\Api\Memory;
 
-use DataMat\CheshireCat\DTO\Api\Memory\Nested\Record;
+use DataMat\GrinningCat\DTO\Api\Memory\Nested\Record;
 
 class MemoryPointsOutput
 {

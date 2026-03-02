@@ -1,11 +1,11 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginCollectionOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginsSettingsOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginToggleOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginCollectionOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginsSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginToggleOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
 use GuzzleHttp\Exception\GuzzleException;
 
 class PluginsEndpoint extends AbstractEndpoint

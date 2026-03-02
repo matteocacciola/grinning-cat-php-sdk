@@ -48,6 +48,6 @@ RUN groupadd -o -g ${GID} appuser
 RUN useradd -r -u ${UID} -g appuser appuser
 USER appuser
 
-WORKDIR /var/www/cheshirecat-php-sdk
+WORKDIR /var/www/grinning-cat-php-sdk
 ENTRYPOINT ["php", "-S", "0.0.0.0:8081", "-t", "src"]
 EXPOSE 8081

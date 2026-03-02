@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\FileManager\Nested;
+namespace DataMat\GrinningCat\DTO\Api\FileManager\Nested;
 
 use Symfony\Component\Serializer\Annotation\SerializedName;
 

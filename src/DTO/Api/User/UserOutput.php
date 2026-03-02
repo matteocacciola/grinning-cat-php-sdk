@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\User;
+namespace DataMat\GrinningCat\DTO\Api\User;
 
 use Symfony\Component\Serializer\Annotation\SerializedName;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Memory;
+namespace DataMat\GrinningCat\DTO\Api\Memory;
 
 class MemoryPointDeleteOutput
 {

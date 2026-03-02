@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
@@ -33,9 +33,9 @@ class ChunkerEndpointTest extends TestCase
             'selected_configuration' => 'testChunker',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->chunker();
+        $endpoint = $grinningCatClient->chunker();
         $result = $endpoint->getChunkersSettings('agent');
 
         foreach ($expected['settings'] as $key => $setting) {
@@ -67,9 +67,9 @@ class ChunkerEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->chunker();
+        $endpoint = $grinningCatClient->chunker();
         $result = $endpoint->getChunkerSettings('testChunker', 'agent');
 
         self::assertEquals($expected['name'], $result->name);
@@ -94,9 +94,9 @@ class ChunkerEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->chunker();
+        $endpoint = $grinningCatClient->chunker();
         $result = $endpoint->putChunkerSettings('testChunker', 'agent', $expected['value']);
 
         self::assertEquals($expected['name'], $result->name);

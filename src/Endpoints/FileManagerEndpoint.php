@@ -1,11 +1,11 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Factory\FactoryObjectSettingOutput;
-use DataMat\CheshireCat\DTO\Api\Factory\FactoryObjectSettingsOutput;
-use DataMat\CheshireCat\DTO\Api\FileManager\FileManagerAttributes;
-use DataMat\CheshireCat\DTO\Api\FileManager\FileManagerDeletedFiles;
+use DataMat\GrinningCat\DTO\Api\Factory\FactoryObjectSettingOutput;
+use DataMat\GrinningCat\DTO\Api\Factory\FactoryObjectSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\FileManager\FileManagerAttributes;
+use DataMat\GrinningCat\DTO\Api\FileManager\FileManagerDeletedFiles;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\StreamInterface;
 

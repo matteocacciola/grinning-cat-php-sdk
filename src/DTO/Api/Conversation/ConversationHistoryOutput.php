@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Conversation;
+namespace DataMat\GrinningCat\DTO\Api\Conversation;
 
-use DataMat\CheshireCat\DTO\Api\Memory\Nested\ConversationMessage;
+use DataMat\GrinningCat\DTO\Api\Memory\Nested\ConversationMessage;
 
 class ConversationHistoryOutput
 {

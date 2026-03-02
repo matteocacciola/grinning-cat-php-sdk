@@ -1,10 +1,10 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\DTO\Api\Plugin\PluginsSettingsOutput;
-use DataMat\CheshireCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\DTO\Api\Plugin\PluginsSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
@@ -88,9 +88,9 @@ class AdminsEndpointTest extends TestCase
             ]
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->getAvailablePlugins();
 
         self::assertEquals($expected, $result->toArray());
@@ -106,9 +106,9 @@ class AdminsEndpointTest extends TestCase
             'content_type' => 'application/zip',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->postInstallPluginFromZip($expected['filename']);
 
         self::assertEquals($expected['filename'], $result->filename);
@@ -126,9 +126,9 @@ class AdminsEndpointTest extends TestCase
             'info' => 'Plugin is being installed asynchronously',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->postInstallPluginFromRegistry($url);
 
         self::assertEquals($expected['url'], $result->url);
@@ -181,9 +181,9 @@ class AdminsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->getPluginsSettings();
 
         self::assertInstanceOf(PluginsSettingsOutput::class, $result);
@@ -213,9 +213,9 @@ class AdminsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->getPluginSettings($expected['name']);
 
         self::assertInstanceOf(PluginSettingsOutput::class, $result);
@@ -244,9 +244,9 @@ class AdminsEndpointTest extends TestCase
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->getPluginDetails('setting1');
 
         self::assertEquals($expected['data'], $result->data);
@@ -261,9 +261,9 @@ class AdminsEndpointTest extends TestCase
             'deleted' => 'setting_1',
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->admins();
+        $endpoint = $grinningCatClient->admins();
         $result = $endpoint->deletePlugin('setting1');
 
         self::assertEquals($expected['deleted'], $result->deleted);

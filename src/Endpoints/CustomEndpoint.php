@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
 

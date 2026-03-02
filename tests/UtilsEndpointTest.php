@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
-use DataMat\CheshireCat\Tests\Traits\TestTrait;
+use DataMat\GrinningCat\Tests\Traits\TestTrait;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
@@ -23,9 +23,9 @@ class UtilsEndpointTest extends TestCase
             'deleted_plugin_folders' => true,
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->utils();
+        $endpoint = $grinningCatClient->utils();
         $result = $endpoint->postFactoryReset();
 
         self::assertTrue($result->deletedSettings);
@@ -43,9 +43,9 @@ class UtilsEndpointTest extends TestCase
             'deleted_memories' => true,
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->utils();
+        $endpoint = $grinningCatClient->utils();
         $result = $endpoint->postAgentReset('agent');
 
         self::assertTrue($result->deletedSettings);
@@ -62,9 +62,9 @@ class UtilsEndpointTest extends TestCase
             'deleted_memories' => true,
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->utils();
+        $endpoint = $grinningCatClient->utils();
         $result = $endpoint->postAgentDestroy('agent');
 
         self::assertTrue($result->deletedSettings);
@@ -80,9 +80,9 @@ class UtilsEndpointTest extends TestCase
             'created' => true,
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->utils();
+        $endpoint = $grinningCatClient->utils();
         $result = $endpoint->postAgentCreate('agent');
 
         self::assertTrue($result->created);

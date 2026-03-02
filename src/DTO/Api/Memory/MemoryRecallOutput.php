@@ -1,10 +1,10 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Memory;
+namespace DataMat\GrinningCat\DTO\Api\Memory;
 
 
-use DataMat\CheshireCat\DTO\Api\Memory\Nested\MemoryRecallQuery;
-use DataMat\CheshireCat\DTO\Api\Memory\Nested\MemoryRecallVectors;
+use DataMat\GrinningCat\DTO\Api\Memory\Nested\MemoryRecallQuery;
+use DataMat\GrinningCat\DTO\Api\Memory\Nested\MemoryRecallVectors;
 
 class MemoryRecallOutput
 {

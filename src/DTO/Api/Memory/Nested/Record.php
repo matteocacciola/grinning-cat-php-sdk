@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Memory\Nested;
+namespace DataMat\GrinningCat\DTO\Api\Memory\Nested;
 
 class Record
 {

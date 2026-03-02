@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat;
+namespace DataMat\GrinningCat;
 
-class CheshireCatUtility
+class GrinningCatUtility
 {
     public static function classize(string $function) : string
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO;
+namespace DataMat\GrinningCat\DTO;
 
 class SettingInput
 {

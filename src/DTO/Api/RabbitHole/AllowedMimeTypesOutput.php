@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\RabbitHole;
+namespace DataMat\GrinningCat\DTO\Api\RabbitHole;
 
 class AllowedMimeTypesOutput
 {

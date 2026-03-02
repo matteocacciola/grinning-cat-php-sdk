@@ -1,10 +1,10 @@
 <?php
 
-namespace DataMat\CheshireCat;
+namespace DataMat\GrinningCat;
 
-use DataMat\CheshireCat\Clients\HttpClient;
-use DataMat\CheshireCat\Clients\WSClient;
-use DataMat\CheshireCat\Endpoints\AbstractEndpoint;
+use DataMat\GrinningCat\Clients\HttpClient;
+use DataMat\GrinningCat\Clients\WSClient;
+use DataMat\GrinningCat\Endpoints\AbstractEndpoint;
 use Symfony\Component\PropertyInfo\Extractor\ConstructorExtractor;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
@@ -17,26 +17,26 @@ use Symfony\Component\Serializer\Serializer;
 
 
 /**
- * @method \DataMat\CheshireCat\Endpoints\AdminsEndpoint admins()
- * @method \DataMat\CheshireCat\Endpoints\AgenticWorkflowEndpoint agenticWorkflow()
- * @method \DataMat\CheshireCat\Endpoints\AuthEndpoint auth()
- * @method \DataMat\CheshireCat\Endpoints\AuthHandlerEndpoint authHandler()
- * @method \DataMat\CheshireCat\Endpoints\ChunkerEndpoint chunker()
- * @method \DataMat\CheshireCat\Endpoints\ConversationEndpoint conversation()
- * @method \DataMat\CheshireCat\Endpoints\CustomEndpoint custom()
- * @method \DataMat\CheshireCat\Endpoints\EmbedderEndpoint embedder()
- * @method \DataMat\CheshireCat\Endpoints\FileManagerEndpoint fileManager()
- * @method \DataMat\CheshireCat\Endpoints\LargeLanguageModelEndpoint largeLanguageModel()
- * @method \DataMat\CheshireCat\Endpoints\MemoryEndpoint memory()
- * @method \DataMat\CheshireCat\Endpoints\MessageEndpoint message()
- * @method \DataMat\CheshireCat\Endpoints\PluginsEndpoint plugins()
- * @method \DataMat\CheshireCat\Endpoints\RabbitHoleEndpoint rabbitHole()
- * @method \DataMat\CheshireCat\Endpoints\UsersEndpoint users()
- * @method \DataMat\CheshireCat\Endpoints\UtilsEndpoint utils()
- * @method \DataMat\CheshireCat\Endpoints\VectorDatabaseEndpoint vectorDatabase()
- * @method \DataMat\CheshireCat\Endpoints\HealthCheckEndpoint healthCheck()
+ * @method \DataMat\GrinningCat\Endpoints\AdminsEndpoint admins()
+ * @method \DataMat\GrinningCat\Endpoints\AgenticWorkflowEndpoint agenticWorkflow()
+ * @method \DataMat\GrinningCat\Endpoints\AuthEndpoint auth()
+ * @method \DataMat\GrinningCat\Endpoints\AuthHandlerEndpoint authHandler()
+ * @method \DataMat\GrinningCat\Endpoints\ChunkerEndpoint chunker()
+ * @method \DataMat\GrinningCat\Endpoints\ConversationEndpoint conversation()
+ * @method \DataMat\GrinningCat\Endpoints\CustomEndpoint custom()
+ * @method \DataMat\GrinningCat\Endpoints\EmbedderEndpoint embedder()
+ * @method \DataMat\GrinningCat\Endpoints\FileManagerEndpoint fileManager()
+ * @method \DataMat\GrinningCat\Endpoints\LargeLanguageModelEndpoint largeLanguageModel()
+ * @method \DataMat\GrinningCat\Endpoints\MemoryEndpoint memory()
+ * @method \DataMat\GrinningCat\Endpoints\MessageEndpoint message()
+ * @method \DataMat\GrinningCat\Endpoints\PluginsEndpoint plugins()
+ * @method \DataMat\GrinningCat\Endpoints\RabbitHoleEndpoint rabbitHole()
+ * @method \DataMat\GrinningCat\Endpoints\UsersEndpoint users()
+ * @method \DataMat\GrinningCat\Endpoints\UtilsEndpoint utils()
+ * @method \DataMat\GrinningCat\Endpoints\VectorDatabaseEndpoint vectorDatabase()
+ * @method \DataMat\GrinningCat\Endpoints\HealthCheckEndpoint healthCheck()
  */
-class CheshireCatClient
+class GrinningCatClient
 {
     private WSClient $wsClient;
     private HttpClient $httpClient;
@@ -95,8 +95,8 @@ class CheshireCatClient
 
     public function __call(string $method, $args): AbstractEndpoint
     {
-        return CheshireCatFactory::build(
-            __NAMESPACE__ . CheshireCatUtility::classize($method),
+        return GrinningCatFactory::build(
+            __NAMESPACE__ . GrinningCatUtility::classize($method),
             $this
         );
     }

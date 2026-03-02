@@ -1,9 +1,9 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Message\ChatOutput;
-use DataMat\CheshireCat\DTO\Message;
+use DataMat\GrinningCat\DTO\Api\Message\ChatOutput;
+use DataMat\GrinningCat\DTO\Message;
 use Closure;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;

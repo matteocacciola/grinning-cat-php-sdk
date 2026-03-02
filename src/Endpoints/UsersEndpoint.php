@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\User\UserOutput;
+use DataMat\GrinningCat\DTO\Api\User\UserOutput;
 use GuzzleHttp\Exception\GuzzleException;
 
 class UsersEndpoint extends AbstractEndpoint
@@ -74,7 +74,7 @@ class UsersEndpoint extends AbstractEndpoint
 
     /**
      * This endpoint is used to get a user in the system. The user is identified by the userId parameter, previously
-     * provided by the CheshireCat API when the user was created. The endpoint returns the username and the permissions
+     * provided by the GrinningCat API when the user was created. The endpoint returns the username and the permissions
      * of the user. The permissions are used to define the access rights of the user in the system and are defined by
      * the system administrator.
      *
@@ -91,7 +91,7 @@ class UsersEndpoint extends AbstractEndpoint
 
     /**
      * The endpoint is used to update the user in the system. The user is identified by the userId parameter, previously
-     * provided by the CheshireCat API when the user was created. The endpoint updates the username, the password, and
+     * provided by the GrinningCat API when the user was created. The endpoint updates the username, the password, and
      * the permissions of the user. The permissions are used to define the access rights of the user in the system and
      * are defined by the system administrator.
      *
@@ -132,7 +132,7 @@ class UsersEndpoint extends AbstractEndpoint
 
     /**
      * This endpoint is used to delete the user in the system. The user is identified by the userId parameter,
-     * previously provided by the CheshireCat API when the user was created.
+     * previously provided by the GrinningCat API when the user was created.
      *
      * @throws GuzzleException
      */

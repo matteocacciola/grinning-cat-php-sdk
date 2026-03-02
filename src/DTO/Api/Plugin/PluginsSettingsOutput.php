@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Plugin;
+namespace DataMat\GrinningCat\DTO\Api\Plugin;
 
-use DataMat\CheshireCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Plugin\Settings\PluginSettingsOutput;
 
 class PluginsSettingsOutput
 {

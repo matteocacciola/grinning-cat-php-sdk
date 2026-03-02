@@ -1,11 +1,11 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Conversation\ConversationDeleteOutput;
-use DataMat\CheshireCat\DTO\Api\Conversation\ConversationHistoryOutput;
-use DataMat\CheshireCat\DTO\Api\Conversation\ConversationAttributesChangeOutput;
-use DataMat\CheshireCat\DTO\Api\Conversation\ConversationsResponse;
+use DataMat\GrinningCat\DTO\Api\Conversation\ConversationDeleteOutput;
+use DataMat\GrinningCat\DTO\Api\Conversation\ConversationHistoryOutput;
+use DataMat\GrinningCat\DTO\Api\Conversation\ConversationAttributesChangeOutput;
+use DataMat\GrinningCat\DTO\Api\Conversation\ConversationsResponse;
 use GuzzleHttp\Exception\GuzzleException;
 use RuntimeException;
 

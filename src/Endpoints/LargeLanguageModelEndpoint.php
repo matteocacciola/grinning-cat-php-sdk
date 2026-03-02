@@ -1,9 +1,9 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Factory\FactoryObjectSettingOutput;
-use DataMat\CheshireCat\DTO\Api\Factory\FactoryObjectSettingsOutput;
+use DataMat\GrinningCat\DTO\Api\Factory\FactoryObjectSettingOutput;
+use DataMat\GrinningCat\DTO\Api\Factory\FactoryObjectSettingsOutput;
 use GuzzleHttp\Exception\GuzzleException;
 
 class LargeLanguageModelEndpoint extends AbstractEndpoint

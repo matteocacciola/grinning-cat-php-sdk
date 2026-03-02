@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests;
+namespace DataMat\GrinningCat\Tests;
 
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
@@ -32,9 +32,9 @@ class ConversationEndpointTest extends BaseTest
             ],
         ];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->conversation();
+        $endpoint = $grinningCatClient->conversation();
         $result = $endpoint->getConversationHistory('agent', 'user', 'chat');
 
         self::assertEquals($expected, $result->toArray());
@@ -47,9 +47,9 @@ class ConversationEndpointTest extends BaseTest
     {
         $expected = ['deleted' => true];
 
-        $cheshireCatClient = $this->getCheshireCatClient($this->apikey, $expected);
+        $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $cheshireCatClient->conversation();
+        $endpoint = $grinningCatClient->conversation();
         $result = $endpoint->deleteConversation('agent', 'user', 'chat');
 
         self::assertEquals($expected['deleted'], $result->deleted);

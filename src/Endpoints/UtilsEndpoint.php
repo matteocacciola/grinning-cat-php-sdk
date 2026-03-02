@@ -1,12 +1,12 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\Admins\AgentClonedOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\AgentCreatedOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\AgentOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\AgentUpdatedOutput;
-use DataMat\CheshireCat\DTO\Api\Admins\ResetOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\AgentClonedOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\AgentCreatedOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\AgentOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\AgentUpdatedOutput;
+use DataMat\GrinningCat\DTO\Api\Admins\ResetOutput;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Utils;
 

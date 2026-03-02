@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Builders;
+namespace DataMat\GrinningCat\Builders;
 
-use DataMat\CheshireCat\DTO\Why;
+use DataMat\GrinningCat\DTO\Why;
 
 class WhyBuilder implements BaseBuilder
 {

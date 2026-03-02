@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\Clients;
+namespace DataMat\GrinningCat\Clients;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;

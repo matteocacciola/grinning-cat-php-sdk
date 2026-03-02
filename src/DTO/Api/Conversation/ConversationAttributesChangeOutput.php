@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Conversation;
+namespace DataMat\GrinningCat\DTO\Api\Conversation;
 
 class ConversationAttributesChangeOutput
 {

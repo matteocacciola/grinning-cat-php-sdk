@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests\Mocks;
+namespace DataMat\GrinningCat\Tests\Mocks;
 
-use DataMat\CheshireCat\Clients\WSClient;
+use DataMat\GrinningCat\Clients\WSClient;
 use WebSocket\Client;
 
 class TestWsClient extends WSClient

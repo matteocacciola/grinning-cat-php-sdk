@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Builders;
+namespace DataMat\GrinningCat\Builders;
 
-use DataMat\CheshireCat\DTO\SettingInput;
+use DataMat\GrinningCat\DTO\SettingInput;
 
 class SettingInputBuilder implements BaseBuilder
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Tests\Mocks;
+namespace DataMat\GrinningCat\Tests\Mocks;
 
-use DataMat\CheshireCat\Clients\HttpClient;
+use DataMat\GrinningCat\Clients\HttpClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 

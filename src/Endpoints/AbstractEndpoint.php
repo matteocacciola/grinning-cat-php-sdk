@@ -1,20 +1,20 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\CheshireCatClient;
+use DataMat\GrinningCat\GrinningCatClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use WebSocket\Client as WebSocketClient;
 
 abstract class AbstractEndpoint
 {
-    protected CheshireCatClient $client;
+    protected GrinningCatClient $client;
     protected string $prefix;
 
     protected string $systemId = 'system';
 
-    public function __construct(CheshireCatClient $client)
+    public function __construct(GrinningCatClient $client)
     {
         $this->client = $client;
     }

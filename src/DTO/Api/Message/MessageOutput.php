@@ -1,9 +1,9 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Message;
+namespace DataMat\GrinningCat\DTO\Api\Message;
 
-use DataMat\CheshireCat\DTO\MessageBase;
-use DataMat\CheshireCat\DTO\Why;
+use DataMat\GrinningCat\DTO\MessageBase;
+use DataMat\GrinningCat\DTO\Why;
 
 class MessageOutput extends MessageBase
 {

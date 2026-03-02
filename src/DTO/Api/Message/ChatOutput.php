@@ -1,6 +1,6 @@
 <?php
 
-namespace DataMat\CheshireCat\DTO\Api\Message;
+namespace DataMat\GrinningCat\DTO\Api\Message;
 
 use Symfony\Component\Serializer\Annotation\SerializedName;
 

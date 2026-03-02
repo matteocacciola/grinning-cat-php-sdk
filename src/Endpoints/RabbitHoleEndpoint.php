@@ -1,8 +1,8 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\RabbitHole\AllowedMimeTypesOutput;
+use DataMat\GrinningCat\DTO\Api\RabbitHole\AllowedMimeTypesOutput;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Utils;
@@ -15,7 +15,7 @@ class RabbitHoleEndpoint extends AbstractEndpoint
      * This method posts a file to the RabbitHole API. The file is uploaded to the RabbitHole server and ingested into
      * the RAG system. The file is then processed by the RAG system, and the results are stored in the RAG database.
      * The process is asynchronous and the results are returned in a batch.
-     * The CheshireCat processes the injection in the background, and the client will be informed at the end of the
+     * The GrinningCat processes the injection in the background, and the client will be informed at the end of the
      * process.
      *
      * @throws \JsonException
@@ -53,7 +53,7 @@ class RabbitHoleEndpoint extends AbstractEndpoint
      * This method posts a number of files to the RabbitHole API. The files are uploaded to the RabbitHole server and
      * ingested into the RAG system. The files are then processed by the RAG system, and the results are stored in the
      * RAG database. The files are processed in a batch. The process is asynchronous.
-     * The CheshireCat processes the injection in the background, and the client will be informed at the end of the
+     * The GrinningCat processes the injection in the background, and the client will be informed at the end of the
      * process.
      *
      * @param string[] $filePaths
@@ -94,7 +94,7 @@ class RabbitHoleEndpoint extends AbstractEndpoint
      * This method posts a web URL to the RabbitHole API. The web URL is ingested into the RAG system. The web URL is
      * processed by the RAG system by Web scraping, and the results are stored in the RAG database. The process is
      * asynchronous.
-     * The CheshireCat processes the injection in the background, and the client will be informed at the end of the
+     * The GrinningCat processes the injection in the background, and the client will be informed at the end of the
      * process.
      *
      * @throws \JsonException
@@ -120,7 +120,7 @@ class RabbitHoleEndpoint extends AbstractEndpoint
     /**
      * This method posts a memory point. The memory point is ingested into the RAG system. The process is asynchronous.
      * The provided file must be in JSON format.
-     * The CheshireCat processes the injection in the background, and the client will be informed at the end of the
+     * The GrinningCat processes the injection in the background, and the client will be informed at the end of the
      * process.
      */
     public function postMemory(

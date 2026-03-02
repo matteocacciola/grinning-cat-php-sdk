@@ -1,11 +1,11 @@
 <?php
 
-namespace DataMat\CheshireCat\Endpoints;
+namespace DataMat\GrinningCat\Endpoints;
 
-use DataMat\CheshireCat\DTO\Api\AgentMatchOutput;
-use DataMat\CheshireCat\DTO\Api\MeOutput;
-use DataMat\CheshireCat\DTO\Api\TokenOutput;
-use DataMat\CheshireCat\DTO\Api\UserMeOutput;
+use DataMat\GrinningCat\DTO\Api\AgentMatchOutput;
+use DataMat\GrinningCat\DTO\Api\MeOutput;
+use DataMat\GrinningCat\DTO\Api\TokenOutput;
+use DataMat\GrinningCat\DTO\Api\UserMeOutput;
 use GuzzleHttp\Exception\GuzzleException;
 
 class AuthEndpoint extends AbstractEndpoint
