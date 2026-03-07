@@ -46,28 +46,37 @@ class MessageEndpoint extends AbstractEndpoint
         ?Closure $closure = null
     ): ChatOutput {
         $json = json_encode($message->toArray(), JSON_THROW_ON_ERROR);
-        if (!$json) {
-            throw new RuntimeException('Error encode message');
-        }
         $client = $this->getWsClient($agentId, $userId, $chatId);
-        $client->text($json);
 
-        while (true) {
-            $response = $client->receive();
-            if ($response === null) {
-                throw new RuntimeException('Error receive message');
-            }
+        try {
+            $client->text($json);
 
-            $content = $response->getContent();
-            if (!str_contains($content, '"type":"chat"')) {
-                $closure?->call($this, $content);
-                continue;
+            while (true) {
+                $response = $client->receive();
+                $content = $response->getContent();
+
+                if ($content === 'ping') {
+                    $client->text('pong');
+                    continue;
+                }
+                if ($content === 'pong') {
+                    continue;
+                }
+
+                $decoded = json_decode($content, true);
+
+                if (($decoded['type'] ?? null) !== 'chat') {
+                    $closure?->call($this, $decoded);
+                    continue;
+                }
+
+                return $this->deserialize($decoded['content'], ChatOutput::class);
             }
-            break;
+        } catch (Exception $ex) {
+            $client->disconnect();
+            throw new RuntimeException('WebSocket error: ' . $ex->getMessage(), 0, $ex);
+        } finally {
+            $client->disconnect();
         }
-
-        $client->disconnect();
-
-        return $this->deserialize($content, ChatOutput::class);
     }
 }
