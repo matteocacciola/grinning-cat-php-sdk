@@ -49,6 +49,14 @@ class WSClient
         return $this->wsClient;
     }
 
+    public function close() {
+        if ($this->wsClient) {
+            $this->wsClient->disconnect();
+            $this->wsClient->close();
+            $this->wsClient = null;
+        }
+    }
+
     public function getWsUri(string $agentId, string $userId, ?string $chatId = null): Uri
     {
         $query = [];

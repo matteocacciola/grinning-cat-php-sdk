@@ -73,10 +73,8 @@ class MessageEndpoint extends AbstractEndpoint
                 return $this->deserialize($decoded['content'], ChatOutput::class);
             }
         } catch (Exception $ex) {
-            $client->disconnect();
+            $this->client->getWsClient()->close();
             throw new RuntimeException('WebSocket error: ' . $ex->getMessage(), 0, $ex);
-        } finally {
-            $client->disconnect();
         }
     }
 }
