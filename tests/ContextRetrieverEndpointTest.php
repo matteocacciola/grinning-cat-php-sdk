@@ -7,19 +7,19 @@ use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 
-class ChunkerEndpointTest extends TestCase
+class ContextRetrieverEndpointTest extends TestCase
 {
     use TestTrait;
 
     /**
      * @throws GuzzleException|\JsonException|Exception
      */
-    public function testGetChunkersSettingsSuccess(): void
+    public function testGetContextRetrieversSettingsSuccess(): void
     {
         $expected = [
             'settings' => [
                 [
-                    'name' => 'testChunker',
+                    'name' => 'testContextRetriever',
                     'value' => [
                         'property_first' => 'value_first',
                         'property_second' => 'value_second',
@@ -30,13 +30,13 @@ class ChunkerEndpointTest extends TestCase
                     ],
                 ],
             ],
-            'selected_configuration' => 'testChunker',
+            'selected_configuration' => 'testContextRetriever',
         ];
 
         $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $grinningCatClient->chunker();
-        $result = $endpoint->getChunkersSettings('agent');
+        $endpoint = $grinningCatClient->contextRetriever();
+        $result = $endpoint->getContextRetrieversSettings('agent');
 
         foreach ($expected['settings'] as $key => $setting) {
             self::assertEquals($setting['name'], $result->settings[$key]->name);
@@ -53,10 +53,10 @@ class ChunkerEndpointTest extends TestCase
     /**
      * @throws GuzzleException|\JsonException|Exception
      */
-    public function testGetChunkerSettingsSuccess(): void
+    public function testGetContextRetrieverSettingsSuccess(): void
     {
         $expected = [
-            'name' => 'testChunker',
+            'name' => 'testContextRetriever',
             'value' => [
                 'property_first' => 'value_first',
                 'property_second' => 'value_second',
@@ -69,8 +69,8 @@ class ChunkerEndpointTest extends TestCase
 
         $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $grinningCatClient->chunker();
-        $result = $endpoint->getChunkerSettings('testChunker', 'agent');
+        $endpoint = $grinningCatClient->contextRetriever();
+        $result = $endpoint->getContextRetrieverSettings('testContextRetriever', 'agent');
 
         self::assertEquals($expected['name'], $result->name);
         foreach ($expected['value'] as $property => $value) {
@@ -84,10 +84,10 @@ class ChunkerEndpointTest extends TestCase
     /**
      * @throws GuzzleException|\JsonException|Exception
      */
-    public function testPutChunkerSettingsSuccess(): void
+    public function testPutContextRetrieverSettingsSuccess(): void
     {
         $expected = [
-            'name' => 'testChunker',
+            'name' => 'testContextRetriever',
             'value' => [
                 'property_first' => 'value_first',
                 'property_second' => 'value_second',
@@ -96,8 +96,8 @@ class ChunkerEndpointTest extends TestCase
 
         $grinningCatClient = $this->getGrinningCatClient($this->apikey, $expected);
 
-        $endpoint = $grinningCatClient->chunker();
-        $result = $endpoint->putChunkerSettings('testChunker', 'agent', $expected['value']);
+        $endpoint = $grinningCatClient->contextRetriever();
+        $result = $endpoint->putContextRetrieverSettings('testContextRetriever', 'agent', $expected['value']);
 
         self::assertEquals($expected['name'], $result->name);
         foreach ($expected['value'] as $property => $value) {

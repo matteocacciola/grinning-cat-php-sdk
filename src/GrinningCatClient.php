@@ -22,6 +22,7 @@ use Symfony\Component\Serializer\Serializer;
  * @method \DataMat\GrinningCat\Endpoints\AuthEndpoint auth()
  * @method \DataMat\GrinningCat\Endpoints\AuthHandlerEndpoint authHandler()
  * @method \DataMat\GrinningCat\Endpoints\ChunkerEndpoint chunker()
+ * @method \DataMat\GrinningCat\Endpoints\ContextRetrieverEndpoint contextRetriever()
  * @method \DataMat\GrinningCat\Endpoints\ConversationEndpoint conversation()
  * @method \DataMat\GrinningCat\Endpoints\CustomEndpoint custom()
  * @method \DataMat\GrinningCat\Endpoints\EmbedderEndpoint embedder()
